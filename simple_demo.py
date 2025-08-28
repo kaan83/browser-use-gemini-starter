@@ -4,31 +4,31 @@
 import asyncio
 from utils.gemini_helpers import GeminiHelper
 
-async def simple_google_search():
-    """Simple test: Google search automation."""
-    print("Starting Google search test...")
+async def login_test_demo():
+    """Login test automation using the-internet.herokuapp.com."""
+    print("Starting login test demo...")
     
     helper = GeminiHelper()
     
-    # Simple task that should complete quickly
-    task = "Go to google.com and search for 'Python programming'"
+    # Task with specific steps for login automation
+    task = """Go to 'https://the-internet.herokuapp.com/login'. On the page username and password for login is written, enter the credentials you get from page to username and password textboxes, click login button, verify that you logged in"""
     
     try:
         print(f"Task: {task}")
         result = await helper.run_automation_task(task)
-        print("PASS: Google search completed successfully")
+        print("PASS: Login test completed successfully")
         return True
     except Exception as e:
-        print(f"FAIL: Google search failed: {e}")
+        print(f"FAIL: Login test failed: {e}")
         return False
 
 async def main():
     """Run the simple demo."""
-    print("Browser-Use Gemini Demo Test")
-    print("============================")
+    print("Browser-Use Gemini Login Demo Test")
+    print("==================================")
     
-    # Run simple test
-    success = await simple_google_search()
+    # Run login test
+    success = await login_test_demo()
     
     if success:
         print("\nSUCCESS: Demo completed successfully!")
